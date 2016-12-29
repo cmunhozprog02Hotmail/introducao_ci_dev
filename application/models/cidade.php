@@ -34,6 +34,7 @@ class Cidade extends CI_Model{
         $this->db->from('cidade c');
         return $this->db->get()->result_array();
     }
+    
 }
 
 
