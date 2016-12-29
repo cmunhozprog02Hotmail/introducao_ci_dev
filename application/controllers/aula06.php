@@ -7,9 +7,14 @@ class Aula06 extends CI_Controller {
     {
        
         $this->load->model('Cliente', 'ClienteM');
-        $res = $this->ClienteM->get();
-        
+        $this->load->model('Cidade', 'CidadeM');
+        #$res = $this->ClienteM->get();
+        #$res = $this->CidadeM->getWhere2(3);
+        #$estados = array('RJ', 'SP');
+        #$res = $this->CidadeM->getWhereIn($estados);
+        $res = $this->CidadeM->getLike('sao');
         echo '<pre>';
+        #print_r($this->db);
         print_r($res); 
        
         

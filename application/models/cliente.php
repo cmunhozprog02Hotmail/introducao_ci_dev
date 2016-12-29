@@ -8,5 +8,8 @@ class Cliente extends CI_Model{
         $this->db->join('cidade', 'cidade.codcidade = cliente.codcidade', 'LEFT');
         return $this->db->get()->Result();
     }
+    public function getGroup(){
+        $this->db->from('cliente');
+    }
 }
 

@@ -34,6 +34,28 @@ class Cidade extends CI_Model{
         $this->db->from('cidade c');
         return $this->db->get()->result_array();
     }
+    public function getWhere2($uf){
+        $this->db->select('c.codcidade, c.nome, c.uf');
+        $this->db->from('cidade c');
+        $this->db->where('uf', 'RJ');
+        $this->db->or_where('uf', 'RS');
+        #$this->db->where('c.codcidade >=', $codcidade);
+        return $this->db->get()->result();
+    }
+    public function getWhereIn($condicao){
+        $this->db->select('c.codcidade, c.nome, c.uf');
+        $this->db->from('cidade c');
+        $this->db->where_not_in('uf', $condicao);
+        
+        return $this->db->get()->result();
+    }
+    public function getLike($condicao){
+        $this->db->select('c.codcidade, c.nome, c.uf');
+        $this->db->from('cidade c');
+        $this->db->like('nome', $condicao, 'after');
+        
+        return $this->db->get()->result();
+    }
     
 }
 
