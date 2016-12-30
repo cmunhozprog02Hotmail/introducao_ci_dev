@@ -56,6 +56,23 @@ class Cidade extends CI_Model{
         
         return $this->db->get()->result();
     }
+    public function insert($dados){
+        $this->db->insert('cidade', $dados);
+        return $this->db->insert_id();
+    }
+    public function insertBatch($dados){
+        $this->db->insert_batch('cidade', $dados);
+    }
+    public function insertSet($nome, $uf){
+        $this->db->set('nome', $nome);
+        $this->db->set('uf', $uf);
+        $this->db->insert('cidade');
+        return $this->db->insert_id();
+    }
+    public function insertObjeto($obj){
+        $this->db->set($obj);
+        $this->db->insert('cidade');
+    }
     
 }
 
