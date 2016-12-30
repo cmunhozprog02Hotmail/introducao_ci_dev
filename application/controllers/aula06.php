@@ -12,7 +12,11 @@ class Aula06 extends CI_Controller {
         #$res = $this->CidadeM->getWhere2(3);
         #$estados = array('RJ', 'SP');
         #$res = $this->CidadeM->getWhereIn($estados);
-        $res = $this->CidadeM->getLike('sao');
+        #$res = $this->CidadeM->getLike('sao');
+        #$res = $this->ClienteM->getGroup();
+        #res = $this->ClienteM->getOrder();
+        #$res = $this->ClienteM->getTotalPesquisa();
+        $res = $this->ClienteM->getTotalTabela();
         echo '<pre>';
         #print_r($this->db);
         print_r($res); 
